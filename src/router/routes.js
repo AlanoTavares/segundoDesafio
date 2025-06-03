@@ -1,19 +1,24 @@
-
 const routes = [
   {
-    path: '/',
-    component: () => import('layouts/MainLayout.vue'),
+    path: "/",
+    component: () => import("layouts/MainLayout.vue"),
     children: [
-      { path: '', component: () => import('pages/IndexPage.vue') }
-    ]
+      {
+        path: "",
+        component: () => import("pages/IndexPage.vue"), // Página inicial
+      },
+      {
+        path: "responder",
+        component: () => import("pages/QuizResponder.vue"), // Página de responder o quiz
+      },
+    ],
   },
 
-  // Always leave this as last one,
-  // but you can also remove it
+  // Rota de erro padrão
   {
-    path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorNotFound.vue')
-  }
-]
+    path: "/:catchAll(.*)*",
+    component: () => import("pages/ErrorNotFound.vue"),
+  },
+];
 
-export default routes
+export default routes;
